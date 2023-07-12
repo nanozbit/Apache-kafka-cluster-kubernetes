@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper-app
+  namespace: apache-kafka-zookeeper 
+  labels:
+    name: zookeeper-app
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: zookeeper-app
+  template:
+    metadata:
+      labels:
+        app: zookeeper-app
+    spec:
+      containers:
+        - image: zookeeper
+          name: zookeeper-app
+          ports:
+            - containerPort: 2181

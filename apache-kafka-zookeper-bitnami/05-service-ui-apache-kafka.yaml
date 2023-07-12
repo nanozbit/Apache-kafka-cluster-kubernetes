@@ -1,0 +1,14 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kafka-dashboard 
+  name: dashboard-apache-kafka
+  namespace: apache-kafka-zookeeper
+spec:
+  ports:
+  - port:  8080 
+    targetPort: 8080 
+  selector:
+    app: kafka-dashboard 
